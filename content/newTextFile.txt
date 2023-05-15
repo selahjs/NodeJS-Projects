@@ -1,0 +1,1 @@
+The result is: Hello from first textThe result is: Hello from second text

@@ -1,4 +1,4 @@
-const { readFile, writeFile} = require('fs')
+const { readFileSync, writeFileSync} = require('fs')
 
 //must set the encoding to utf8
 const first = readFileSync('./content/first.txt', 'utf8')
