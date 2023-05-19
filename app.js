@@ -4,7 +4,6 @@ const path = require('path')
 // const html = require('./index.html')
 const app = express()
 
-// console.log(html)
 app.get('/', (req, res)=>{
     res.status(200).sendFile(path.resolve(__dirname,'./index.html'))
 })
