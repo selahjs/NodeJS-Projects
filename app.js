@@ -1,17 +1,24 @@
-const http = require('http')
+// const express = require('express')() ... since we get a function, we can invoke it imidiately
+const express = require('express')
+const path = require('path')
+// const html = require('./index.html')
+const app = express()
 
-const server = http.createServer((req,res)=>{
-    if(req.url==='/'){
-        res.end('hello from home page')
-    }
-    if(req.url==='/about'){
-        res.end('hello from about page')
-    }
-    res.end(`
-        <h1>Oops!</h1>
-        <p>we can't seem to find what you're looking for</p>
-        <a href="/">back home</a>
-    `)
+// console.log(html)
+app.get('/', (req, res)=>{
+    res.status(200).sendFile(path.resolve(__dirname,'./index.html'))
 })
 
-server.listen(4004)
+app.all('*', (req, res)=>{
+    res.status(404).send('<h2>404 Resource not found</h2>')
+})
+
+app.listen(5000, ()=> console.log('listning...'))
+
+// app.get
+// app.post
+// app.put
+// app.delete
+// app.all
+// app.use
+// app.listen

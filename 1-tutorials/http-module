@@ -1,0 +1,13 @@
+const http = require('http')
+
+const server = http.createServer((req,res)=>{
+    console.log('inside server')
+    if(req.url==='/'){
+        res.end('hello from home page')
+    }
+    if(req.url==='/about'){
+        res.end('hello from about page')
+    }
+    
+})
+server.listen(4004, ()=> console.log('listning on port 4004'))
